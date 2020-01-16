@@ -1,8 +1,0 @@
-[
-  {"Number":"1","Name":"Ios","Priority":"High","Status":"Active","Creation_date":"07/29/2007","Finish_date":"null","Creator":"Apple"},
-  {"Number":"2","Name":"Android","Priority":"High","Status":"Active","Creation_date":"09/23/2008","Finish_date":"null","Creator":"Google"},
-  {"Number":"3","Name":"Palm Os","Priority":"Low","Status":"Closed","Creation_date":"01/01/1996","Finish_date":"01/01/2007","Creator":"Palm"},
-  {"Number":"4","Name":"Жопа","Priority":"Null","Status":"Closed","Creation_date":"07/05/1998","Finish_date":"11/11/2012","Creator":"Nokia"},
-  {"Number":"5","Name":"Windows Phone","Priority":"Low","Status":"Closed","Creation_date":"11/11/2010","Finish_date":"12/10/2019","Creator":"Microsoft"},
-  {"Number":"6","Name":"Other","Priority":"Penis","Status":"Null","Creation_date":"Null","Finish_date":"Null","Creator":"Null"}
-]
