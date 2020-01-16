@@ -5,3 +5,11 @@ A future employee has to perform following tasks:\
 2. Create a random JSON file and make it appear on the index page.\
 3. Perform search through the page and also adjust filters.\
 4. Build a project with the Gulp toolkit.}
+
+
+VER1 - What's done
+1. Created an HTML with a local .json file from where we extract data.
+2. A function that displays data from local .json file,
+3. A search function that performs a search through the generated table,
+4. Using GULP JS files were concatenated into one,
+5. Using GULP the concatenated JS file was minimized.
