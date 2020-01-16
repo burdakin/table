@@ -7,36 +7,18 @@
     <script src="jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script>
-
-    </script>
 </head>
 <body>
 
-<header></header>
-<menu>
-    <input type="search" id="search" placeholder="Поиск">
-    <button type="submit" name="Искать" onclick="test()">Искать</button> <span>
-    <input type="search" id="searchNum" onkeyup="finder()" placeholder="поиск по номеру" onclick="#">
-    <select id="priority">
-        <option disabled>Выберите платформу</option>
-        <option value="#">Ios</option>
-        <option value="#">Android</option>
-        <option value="#">Palm OS</option>
-        <option value="#">Others</option>
-    </select> <br>
-<!-- Дописать приоритет -->
-    <select>
-        <option>Active</option>
-        <option>Closed</option>
-    </select><br>
-    <p>дата создания <input type="date" placeholder="Введите дату создания"></p>
-    <p>дата завершения <input type="date"> </p>
-    <button type="submit" onclick="//применить все условия"</button>
+<header>
+    <h1 align="center" style="color: whitesmoke; font-size: 40px; background-color: midnightblue; height: 70px; padding-top: 15px">Тестовое задание Бурдакина Сергея</h1>
+</header>
+<menu style="background-color: lightblue; height: 100px">
+    <input style="width: 900px; margin-top: 35px; text-align: center; margin-left: 220px" type="search" id="searchNum" onkeyup="finder()" placeholder="Начните вводить значения...">
 </menu>
 
     <table class="table table-bordered table-stripped" id="os-table">
-        <tr>
+        <tr style="background-color: lightcyan">
             <th>Номер</th>
             <th>Имя</th>
             <th>Приоритет</th>
@@ -47,7 +29,7 @@
         </tr>
     </table>
 
-    <script>
+<script>
         $(document).ready(function () {
             $.getJSON("package.json", function (data) {
                 var os_data = " ";
@@ -70,26 +52,28 @@
 
 <script>
     function finder() {
-        var input, filter, table, tr, td, i, txtValue;
+        var input, filter, table, tr, td, i, txtValue, j, tds;
         input = document.getElementById("searchNum");
         filter = input.value.toUpperCase();
         table = document.getElementById("os-table");
         tr = table.getElementsByTagName("tr");
 
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
+            tds = tr[i].getElementsByTagName("td");
+            for (j = 0; j < tds.length; j++) {
+                td = tds[j];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                        break;
+                    } else {
+                        tr[i].style.display = "none";
+                    }
                 }
             }
         }
     }
-
-
 </script>
 
 </body>
