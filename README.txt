@@ -12,4 +12,4 @@ VER1 - What's done
 2. A function that displays data from local .json file,
 3. A search function that performs a search through the generated table,
 4. Using GULP JS files were concatenated into one,
-5. Using GULP the concatenated JS file was minimized.
+5. Using GULP the concatenated JS file was minimized. (I keep original JS files in /src)
