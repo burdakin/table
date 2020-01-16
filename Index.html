@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="package.json"></script>
+    <script src="jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+
+<header></header>
+<menu>
+    <input type="search" id="search" placeholder="Поиск">
+    <button type="submit" name="Искать" onclick="test()">Искать</button> <span>
+    <input type="search" id="searchNum" onkeyup="finder()" placeholder="поиск по номеру" onclick="#">
+    <select id="priority">
+        <option disabled>Выберите платформу</option>
+        <option value="#">Ios</option>
+        <option value="#">Android</option>
+        <option value="#">Palm OS</option>
+        <option value="#">Others</option>
+    </select> <br>
+<!-- Дописать приоритет -->
+    <select>
+        <option>Active</option>
+        <option>Closed</option>
+    </select><br>
+    <p>дата создания <input type="date" placeholder="Введите дату создания"></p>
+    <p>дата завершения <input type="date"> </p>
+    <button type="submit" onclick="//применить все условия"</button>
+</menu>
+
+    <table class="table table-bordered table-stripped" id="os-table">
+        <tr>
+            <th>Номер</th>
+            <th>Имя</th>
+            <th>Приоритет</th>
+            <th>Статус</th>
+            <th>Дата начала</th>
+            <th>Дата окончания</th>
+            <th>Создатель</th>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON("package.json", function (data) {
+                var os_data = " ";
+                $.each(data, function (key,value) {
+                    os_data += '<tr>';
+                    os_data += '<td>' +value.Number+'</td>';
+                    os_data += '<td>' +value.Name+'</td>';
+                    os_data += '<td>' +value.Priority+'</td>';
+                    os_data += '<td>' +value.Status+'</td>';
+                    os_data += '<td>' +value.Creation_date+'</td>';
+                    os_data += '<td>' +value.Finish_date+'</td>';
+                    os_data += '<td>' +value.Creator+'</td>';
+                    os_data += '</tr>';
+                });
+                $('#os-table').append(os_data)
+            });
+        });
+
+    </script>
+
+<script>
+    function finder() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchNum");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("os-table");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
