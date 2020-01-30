@@ -10,7 +10,7 @@ let scritpTask = () => gulp.src('./src/scripts/*.js')
     .pipe(gulp.dest('./dist'));
 
 let htmlTask = () => gulp.src('./src/html/*.html')
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./'));
 
 let appTask = () => gulp.src('./src/heroku-deploy/*.js')
     .pipe(gulp.dest('./'));
