@@ -17,6 +17,7 @@
   "author": "Sergey Burdakin",
   "license": "ISC",
   "dependencies": {
-    "flatpickr": "^4.6.3"
+    "flatpickr": "^4.6.3",
+    "node-static": "^0.7.11"
   }
 }
