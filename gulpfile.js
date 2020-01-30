@@ -1,17 +1,33 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var ugly = require('gulp-uglify');
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const ugly = require('gulp-uglify');
+const clean = require('gulp-clean');
+const minifyCSS = require('gulp-csso');
 
-const jsArray = [
-    './src/table.js',
-    './src/test.js'
-]
+let scritpTask = () => gulp.src('./src/scripts/*.js')
+    .pipe(concat('index.js'))
+    // .pipe(ugly())
+    .pipe(gulp.dest('./dist'));
 
-function scritpTask () {
-    return gulp.src(jsArray)
-        .pipe(concat('tableScript.js'))
-        .pipe(ugly())
-        .pipe(gulp.dest('./build/js'))
-}
+let htmlTask = () => gulp.src('./src/html/*.html')
+    .pipe(gulp.dest('./dist'));
 
-gulp.task('script', scritpTask)
+let cssTask = () => gulp.src('./src/styles/index.css', { allowEmpty: true })
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('./dist'));
+
+let dataTask = () => gulp.src('./src/data/*.json')
+    .pipe(gulp.dest('./dist/data'));
+
+let removeTask = () => gulp.src('./dist', { read: false, allowEmpty: true })
+    .pipe(clean());
+
+
+
+gulp.task('script', scritpTask);
+gulp.task('html', htmlTask);
+gulp.task('css', cssTask);
+gulp.task('data', dataTask);
+gulp.task('del', removeTask);
+
+gulp.task('build', gulp.series('del', 'script', 'html', 'css', 'data'));
