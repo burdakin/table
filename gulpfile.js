@@ -12,8 +12,12 @@ let scritpTask = () => gulp.src('./src/scripts/*.js')
 let htmlTask = () => gulp.src('./src/html/*.html')
     .pipe(gulp.dest('./dist'));
 
-let phpTask = () => gulp.src('./src/html/*.php')
-    .pipe(gulp.dest('./dist'));
+let phpTask = () => gulp.src('./src/heroku-deploy/*.php')
+    .pipe(gulp.dest('./'));
+
+let composerTask = () => gulp.src('./src/heroku-deploy/*json')
+    .pipe(gulp.dest('./'));
+
 
 let cssTask = () => gulp.src('./src/styles/index.css', { allowEmpty: true })
     .pipe(minifyCSS())
@@ -33,5 +37,6 @@ gulp.task('css', cssTask);
 gulp.task('data', dataTask);
 gulp.task('del', removeTask);
 gulp.task ('php', phpTask)
+gulp.task ('composer', composerTask);
 
-gulp.task('build', gulp.series('del', 'script', 'html', 'php', 'css', 'data'));
+gulp.task('build', gulp.series('del', 'script', 'html', 'php', 'composer', 'css', 'data'));
