@@ -15,7 +15,7 @@ let htmlTask = () => gulp.src('./src/html/*.html')
 let appTask = () => gulp.src('./src/heroku-deploy/*.js')
     .pipe(gulp.dest('./'));
 
-let procTask = () => gulp.src('./src/heroku-deploy/procfile')
+let procTask = () => gulp.src('./src/heroku-deploy/*')
     .pipe(gulp.dest('./'));
 
 
