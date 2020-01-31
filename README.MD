@@ -1,4 +1,4 @@
-# This is a test for a Junior JS Developer for Severstal.\
+# This is a test for a Junior JS Developer for Severstal.
 
 ## A future employee has to perform following tasks:
 
@@ -15,9 +15,20 @@
 4. Using GULP JS files were concatenated into one,
 5. Using GULP the concatenated JS file was minimized. (I keep original JS files in /src)
 
-## Setup
+## VER2 - What's done
+1. Improved the structure of directories, Improved GULP usage.
+2. Removed Jquery implementation from rendering function.
+3. Added `css` stylesheet.
+4. Added filter function.
+5. Added date picker function.
+6. Deployed via Heroku (`https://severstal-test.herokuapp.com/`)
+7. GIT repository updated.
 
+## Setup
 Use `npm install` to install dependencies
 
 ## Build
 Use `npm run build` to build project
+
+## Date Picker
+Use date field to chose specific date to filter data from table
